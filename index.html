@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jason</title>
+</head>
+<body>
+    <h1>JSon</h1>
+
+<div id="userdiv">
+
+</div>
+
+    <script>
+        // const player = {
+        //     Name : "Shakib al Hasan",
+        //     Jerssie : 75,
+        //     Qualificatio : "All-Rounder",
+        //     Address : "Magura"
+        // }
+        // console.log(player)
+        // const playerJson = JSON.stringify(player)
+        // console.log(playerJson)
+
+        // const repit =  JSON.parse(playerJson) // JSON parse korle JSON korar ager obostai fire jabe
+        // console.log(repit)
+        
+        fetch('https://jsonplaceholder.typicode.com/users/')
+  .then(response => response.json())
+  .then(data => displayUsers(data))
+
+  function displayUsers(users){
+      const usersName = users.map(friend => friend.name )
+      
+      
+      const container = document.getElementById('userdiv')
+      for(let i =0; i< usersName.length; i++){
+          const userName = usersName[i]
+          const h2 = document.createElement('h2')
+          h2.innerText= userName;
+          container.appendChild(h2)
+      }
+
+  }
+ 
+    </script>
+    
+</body>
+</html>
